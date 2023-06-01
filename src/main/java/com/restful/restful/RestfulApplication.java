@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 @EnableJpaAuditing
 public class RestfulApplication {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Throwable {
 		SpringApplication.run(RestfulApplication.class, args);
 	}
 
