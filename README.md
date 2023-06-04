@@ -1,8 +1,8 @@
-##  *Restful with Spring Boot, Postgres and  Hibernate*
+##  *Pc configurator with Spring Boot, Postgres and  Hibernate*
 
 ##  *Introduction*
  
-This is a simple Restful Crud API with Spring Boot, Postgres and Hibernate.
+This is a simple Pc configurator with Spring Boot, Postgres and Hibernate.
 
 ##  *Requirements*
 
@@ -20,7 +20,7 @@ This is a simple Restful Crud API with Spring Boot, Postgres and Hibernate.
 **1. Clone the application**
 
 ```bash
-git clone https://github.com/sezermehmed/restful
+git clone https://github.com/sezermehmed/PC-Configurator
 ```
 
 **2. Database**
@@ -29,7 +29,7 @@ git clone https://github.com/sezermehmed/restful
 ```bash
  sudo -u postgres psql
  ```
-Since the default “postgres” user does not have a password, you should set it yourself.
+Since the default “postgres” memory does not have a password, you should set it yourself.
 ```bash
 \password postgres
 ```
@@ -64,15 +64,15 @@ The app will start running at <http://localhost:8080>.
 
 The app defines following CRUD APIs.
 
-    GET /employees                      or /users               or /employers
+    GET /api/cpu                      or /api/memory               or /api/motherboard
     
-    POST /employees                     or /users               or /employers
+    POST /api/cpu                     or /api/memory               or /api/motherboard
     
-    GET /employees/{employeeId}         or /users/{userId}      or /employers/{employerId}
+    GET /api/cpu/{cpuId}         or /api/memory/{memoryId}      or /api/motherboard/{motherboardId}
     
-    PUT /employees/{employeeId}         or /users/{userId}      or /employers/{employerId}
+    PUT /api/cpu/{cpuId}         or /api/memory/{memoryId}      or /api/motherboard/{motherboardId}
     
-    DELETE /employees/{employeeId}      or /users/{userId}      or /employers/{employerId}
+    DELETE /api/cpu/{cpuId}      or /api/memory/{memoryId}      or /api/motherboard/{motherboardId}
 
 You can test them using postman or any other rest client.
 

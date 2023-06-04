@@ -23,8 +23,8 @@ public class Memory {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "type")
-    private String type;
+    @Column(name = "socket")
+    private String socket;
 
     @Column(name = "price")
     private BigDecimal price;
@@ -63,12 +63,12 @@ public class Memory {
         this.name = name;
     }
 
-    public String getType() {
-        return type;
+    public String getsocket() {
+        return socket;
     }
 
-    public void setType(String type) {
-        this.type = type;
+    public void setsocket(String socket) {
+        this.socket = socket;
     }
 
     public BigDecimal getPrice() {
