@@ -25,16 +25,18 @@ public class Motherboard {
 
 	@Column(name = "price")
 	private Double price;
-
+	@Column(name = "supported_memory")
+	private String supported_memory;
 	// Constructors, getters, and setters
 
-	public Motherboard(Long id, String componentType, String partNumber, String name, String socket, Double price) {
+	public Motherboard(Long id, String componentType, String partNumber, String name, String socket, Double price, String supported_memory) {
 		this.id = id;
 		this.componentType = componentType;
 		this.partNumber = partNumber;
 		this.name = name;
 		this.socket = socket;
 		this.price = price;
+		this.supported_memory = supported_memory;
 	}
 
 	public Motherboard() {
@@ -89,6 +91,14 @@ public class Motherboard {
 		this.price = price;
 	}
 
+	public String getSupported_memory() {
+		return supported_memory;
+	}
+
+	public void setSupported_memory(String supported_memory) {
+		this.supported_memory = supported_memory;
+	}
+
 	@Override
 	public String toString() {
 		return "Motherboard{" +
@@ -97,7 +107,8 @@ public class Motherboard {
 				", partNumber='" + partNumber + '\'' +
 				", name='" + name + '\'' +
 				", socket='" + socket + '\'' +
-				", price=" + price +
+				", price=" + price + '\'' +
+				", Supported Memory='" + supported_memory +
 				'}';
 	}
 }
