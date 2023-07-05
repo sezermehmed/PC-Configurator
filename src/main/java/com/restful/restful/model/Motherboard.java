@@ -11,37 +11,14 @@ public class Motherboard {
 	@Column(name = "id")
 	private Long id;
 
-	@Column(name = "component_type")
-	private String componentType;
-
-	@Column(name = "part_number")
-	private String partNumber;
 
 	@Column(name = "name")
 	private String name;
-
-	@Column(name = "socket")
-	private String socket;
 
 	@Column(name = "price")
 	private Double price;
 	@Column(name = "supported_memory")
 	private String supported_memory;
-	// Constructors, getters, and setters
-
-	public Motherboard(Long id, String componentType, String partNumber, String name, String socket, Double price, String supported_memory) {
-		this.id = id;
-		this.componentType = componentType;
-		this.partNumber = partNumber;
-		this.name = name;
-		this.socket = socket;
-		this.price = price;
-		this.supported_memory = supported_memory;
-	}
-
-	public Motherboard() {
-
-	}
 
 	public Long getId() {
 		return id;
@@ -49,22 +26,6 @@ public class Motherboard {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getComponentType() {
-		return componentType;
-	}
-
-	public void setComponentType(String componentType) {
-		this.componentType = componentType;
-	}
-
-	public String getPartNumber() {
-		return partNumber;
-	}
-
-	public void setPartNumber(String partNumber) {
-		this.partNumber = partNumber;
 	}
 
 	public String getName() {
@@ -75,19 +36,11 @@ public class Motherboard {
 		this.name = name;
 	}
 
-	public String getSocket() {
-		return socket;
-	}
-
-	public void setSocket(String socket) {
-		this.socket = socket;
-	}
-
 	public Double getPrice() {
 		return price;
 	}
 
-	public void setPrice(Double price) {
+	public void setPrice() {
 		this.price = price;
 	}
 
@@ -99,16 +52,4 @@ public class Motherboard {
 		this.supported_memory = supported_memory;
 	}
 
-	@Override
-	public String toString() {
-		return "Motherboard{" +
-				"id=" + id +
-				", componentType='" + componentType + '\'' +
-				", partNumber='" + partNumber + '\'' +
-				", name='" + name + '\'' +
-				", socket='" + socket + '\'' +
-				", price=" + price + '\'' +
-				", Supported Memory='" + supported_memory +
-				'}';
-	}
 }

@@ -12,20 +12,12 @@ public class Cpu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "componenttype")
-    private String componentType;
-
-    @Column(name = "partnumber")
-    private String partNumber;
-
     @Column(name = "name")
     private String name;
 
     @Column(name = "supportedmemory")
     private String supportedMemory;
 
-    @Column(name = "socket")
-    private String socket;
 
     @Column(name = "price")
     private BigDecimal price;
@@ -40,21 +32,6 @@ public class Cpu {
         this.id = id;
     }
 
-    public String getComponentType() {
-        return componentType;
-    }
-
-    public void setComponentType(String componentType) {
-        this.componentType = componentType;
-    }
-
-    public String getPartNumber() {
-        return partNumber;
-    }
-
-    public void setPartNumber(String partNumber) {
-        this.partNumber = partNumber;
-    }
 
     public String getName() {
         return name;
@@ -72,13 +49,6 @@ public class Cpu {
         this.supportedMemory = supportedMemory;
     }
 
-    public String getSocket() {
-        return socket;
-    }
-
-    public void setSocket(String socket) {
-        this.socket = socket;
-    }
 
     public BigDecimal getPrice() {
         return price;

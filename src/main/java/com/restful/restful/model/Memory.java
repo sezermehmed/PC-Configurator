@@ -1,9 +1,7 @@
 package com.restful.restful.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-
 import jakarta.persistence.*;
+
 import java.math.BigDecimal;
 
 @Entity
@@ -13,12 +11,6 @@ public class Memory {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    @Column(name = "componenttype")
-    private String componentType;
-
-    @Column(name = "partnumber")
-    private String partNumber;
 
     @Column(name = "name")
     private String name;
@@ -39,21 +31,6 @@ public class Memory {
         this.id = id;
     }
 
-    public String getComponentType() {
-        return componentType;
-    }
-
-    public void setComponentType(String componentType) {
-        this.componentType = componentType;
-    }
-
-    public String getPartNumber() {
-        return partNumber;
-    }
-
-    public void setPartNumber(String partNumber) {
-        this.partNumber = partNumber;
-    }
 
     public String getName() {
         return name;

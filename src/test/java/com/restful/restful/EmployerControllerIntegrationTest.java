@@ -1,6 +1,6 @@
 package com.restful.restful;
 
-import com.restful.restful.model.Employer;
+import com.restful.restful.model.Motherboard;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,10 +21,10 @@ public class EmployerControllerIntegrationTest {
 	private TestRestTemplate restTemplate;
 
 	@LocalServerPort
-	private int port;
+	private int port = 8080;
 
 	private String getRootUrl() {
-		return "http://localhost:" + port;
+		return "http://localhost:" + port + "/api";
 	}
 
 	@Test
@@ -33,60 +33,61 @@ public class EmployerControllerIntegrationTest {
 	}
 
 	@Test
-	public void testGetAllEmployer() {
+	public void testGetAllMotherboard() {
 		HttpHeaders headers = new HttpHeaders();
 		HttpEntity<String> entity = new HttpEntity<String>(null, headers);
 
-		ResponseEntity<String> response = restTemplate.exchange(getRootUrl() + "/employers",
+		ResponseEntity<String> response = restTemplate.exchange(getRootUrl() + "/motherboard",
 				HttpMethod.GET, entity, String.class);
 		System.out.println(response.getBody());
 		assertNotNull(response.getBody());
 	}
 
 	@Test
-	public void testGetEmployerById() {
-		int id = 2;
-		Employer employer = restTemplate.getForObject(getRootUrl() + "/employers/" + id , Employer.class);
-		System.out.println(employer.getFirstName() + " " + employer.getLastName());
-		assertNotNull(employer);
+	public void testGetMotherboardById() {
+		int id = 11;
+		Motherboard motherboard = restTemplate.getForObject(getRootUrl() + "/motherboard/" + id , Motherboard.class);
+		System.out.println(motherboard.getName() + " " + motherboard.getPrice() + " " + motherboard.getSupported_memory());
+		assertNotNull(motherboard);
 	}
 
 	@Test
-	public void testCreateEmployer() {
-		Employer employer = new Employer();
-		employer.setOtherInfos("sezersezer@gmail.com");
-		employer.setFirstName("sezer");
-		employer.setLastName("adminadmin");
+	public void testCreateMotherboard() {
+		Motherboard motherboard = new Motherboard();
+		motherboard.setName("asus");
+		motherboard.setSupported_memory("DDR4");
+		motherboard.setPrice();
 
-		ResponseEntity<Employer> postResponse = restTemplate.postForEntity(getRootUrl() + "/employers", employer, Employer.class);
+		ResponseEntity<Motherboard> postResponse = restTemplate.postForEntity(getRootUrl() + "/motherboard", motherboard, Motherboard.class);
 		assertNotNull(postResponse);
 		assertNotNull(postResponse.getBody());
 	}
 
 	@Test
-	public void testUpdateEmployer() {
-		int id = 4;
-		Employer employer = restTemplate.getForObject(getRootUrl() + "/employers/" + id, Employer.class);
-		employer.setFirstName("sezersez");
-		employer.setLastName("adminse");
-		employer.setOtherInfos("Infosdasasdsad....");
+	public void testUpdateMotherboard() {
+		int id = 11;
+		Motherboard motherboard = restTemplate.getForObject(getRootUrl() + "/motherboard/" + id, Motherboard.class);
+		motherboard.setName("gigabyte");
+		motherboard.setSupported_memory("DDR3");
+		motherboard.setPrice();
 
-		restTemplate.put(getRootUrl() + "/employers/" + id, employer);
+		restTemplate.put(getRootUrl() + "/motherboard/" + id, motherboard);
 
-		Employer updatedEmployer = restTemplate.getForObject(getRootUrl() + "/employers/" + id, Employer.class);
-		assertNotNull(updatedEmployer);
+		Motherboard updatedMotherboard = restTemplate.getForObject(getRootUrl() + "/motherboard/" + id, Motherboard.class);
+		assertNotNull(updatedMotherboard);
+		System.out.println(updatedMotherboard);
 	}
 
 	@Test
-	public void testDeleteEmployer() {
-		int id = 4;
-		Employer employer = restTemplate.getForObject(getRootUrl() + "/employers/" + id, Employer.class);
-		assertNotNull(employer);
+	public void testDeleteMotherboard() {
+		int id = 17;
+		Motherboard motherboard = restTemplate.getForObject(getRootUrl() + "/motherboard/" + id, Motherboard.class);
+		assertNotNull(motherboard);
 
-		restTemplate.delete(getRootUrl() + "/employers/" + id);
+		restTemplate.delete(getRootUrl() + "/motherboard/" + id);
 
 		try {
-			employer = restTemplate.getForObject(getRootUrl() + "/employers/" + id, Employer.class);
+			motherboard = restTemplate.getForObject(getRootUrl() + "/motherboard/" + id, Motherboard.class);
 		} catch (final HttpClientErrorException e) {
 			assertEquals(e.getStatusCode(), HttpStatus.NOT_FOUND);
 		}
