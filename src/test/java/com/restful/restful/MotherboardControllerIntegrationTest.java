@@ -31,7 +31,6 @@ public class MotherboardControllerIntegrationTest {
 	public void contextLoads() {
 
 	}
-
 	@Test
 	public void testGetAllMotherboard() {
 		HttpHeaders headers = new HttpHeaders();
