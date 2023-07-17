@@ -18,7 +18,6 @@ public class Cpu {
     @Column(name = "supportedmemory")
     private String supportedMemory;
 
-
     @Column(name = "price")
     private BigDecimal price;
 
